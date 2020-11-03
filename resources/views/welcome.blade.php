@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    laraToDd開発中
                 </div>
 
                 <div class="links">
