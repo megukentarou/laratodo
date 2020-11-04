@@ -15,15 +15,13 @@ class WordController extends Controller
      */
     public function index()
     {
-        $values = Word::all();
-
+        //クエリビルダ
         $words = DB::table('words')
         ->select('id', 'text', 'impression', 'action')
+        ->orderBy('created_at', 'desc')
         ->get();
 
-        // dd($words);
-     
-        return view('words.index', compact('values'));
+        return view('words.index', compact('words'));
     }
 
     /**
@@ -64,7 +62,10 @@ class WordController extends Controller
      */
     public function show($id)
     {
-        //
+        $word = Word::find($id);
+        
+        return view('words.show', compact('word'));
+
     }
 
     /**
@@ -75,7 +76,9 @@ class WordController extends Controller
      */
     public function edit($id)
     {
-        //
+        $word = Word::find($id);
+        
+        return view('words.edit', compact('word'));
     }
 
     /**
