@@ -44,7 +44,16 @@ class WordController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $word = new Word;
+
+        $word->text = $request->input('text');
+        $word->impression = $request->input('impression');
+        $word->action = $request->input('action');
+
+        $word->save();
+
+        \Session::flash('flash_message', '保存しました。');
+        return redirect('words/index');
     }
 
     /**

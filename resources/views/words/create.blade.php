@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -15,7 +14,8 @@
                     @endif
 
                     wordモデルのcreate
-                    <form action="" method="post">
+                    <form method="POST" action="{{route('words.store')}}">
+                    @csrf
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">
                         ・印象に残った言葉を入力して下さい
@@ -34,9 +34,10 @@
                         <br>
                         (出来るだけ細かく決める事で具体性が生まれてきて、行動しているイメージがしやすくなります。)
                         </label>
-                        <textarea class="form-control" name="impression" id="exampleFormControlTextarea３" rows="7" placeholder="入力例：WHAT：毎朝５時起きして資格の勉強する。WHEN：まずは３週間続けてみる。WHY：このままだといつまで経っても新しい事にチャレンジ出来ないから。HOW:10時までには必ず寝る。ご飯は8時までに食べ終わる。寝る前にコーヒーを飲まない。" ></textarea>
+                        <textarea class="form-control" name="action" id="exampleFormControlTextarea３" rows="7" placeholder="入力例：WHAT：毎朝５時起きして資格の勉強する。WHEN：まずは３週間続けてみる。WHY：このままだといつまで経っても新しい事にチャレンジ出来ないから。HOW:10時までには必ず寝る。ご飯は8時までに食べ終わる。寝る前にコーヒーを飲まない。" ></textarea>
                     </div>
-                    <input type="submit" class="btn btn-info btn-lg" value="投稿する">      
+                    <input type="submit" class="btn btn-info btn-lg" value="投稿する">
+                         
                     </form>
                 </div>
             </div>

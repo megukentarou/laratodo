@@ -1,5 +1,11 @@
 @extends('layouts.app')
+@if (Session::has('flash_message'))
+    <p class="bg-success">{!! Session::get('flash_message') !!}</p>
+@endif
 
+@if (Session::has('error_message'))
+    <p class="bg-danger">{!! Session::get('error_message') !!}</p>
+@endif
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -19,7 +25,7 @@
                     </button>
                     </form>
                     <br>
-                    ログインしました
+                    index.bladeです
                 </div>
             </div>
         </div>
