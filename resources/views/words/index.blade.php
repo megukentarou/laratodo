@@ -1,4 +1,3 @@
-wordモデルのindex
 @extends('layouts.app')
 
 @section('content')
@@ -14,7 +13,12 @@ wordモデルのindex
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    <form method="GET" action="{{ route('words.create') }}">
+                    <button type="submit" class="btn btn-primary">
+                      新規投稿する
+                    </button>
+                    </form>
+                    <br>
                     ログインしました
                 </div>
             </div>

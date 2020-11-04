@@ -18,6 +18,8 @@ Route::get('/', function () {
 // ログインしていないとリダイレクトされる
 ROute::group(['prefix' => 'words', 'middleware' => 'auth'], function(){
     Route::get('index', 'WordController@index')->name('words.index');  
+    Route::get('create', 'WordController@create')->name('words.create');  
+    Route::post('store', 'WordController@store')->name('words.store');  
 });
 
 Auth::routes();
