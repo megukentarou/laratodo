@@ -32,6 +32,7 @@
                         <th scope="col">テキスト</th>
                         <th scope="col">感想</th>
                         <th scope="col">行動</th>
+                        <th scope="col">詳細</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -41,6 +42,7 @@
                     <td>{{ $word->text}}</td>
                     <td>{{ $word->impression}}</td>
                     <td>{{ $word->action}}</td>
+                    <td><a href="{{ route('words.show', ['id' => $word->id]) }}" class="btn btn-light" >詳細を見る</a></td>
                     @endforeach  
                     </tr>
                     </tbody>

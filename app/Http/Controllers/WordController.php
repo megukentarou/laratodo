@@ -63,8 +63,9 @@ class WordController extends Controller
     public function show($id)
     {
         $word = Word::find($id);
+        
+        return view('words.show', compact('word'));
 
-        return view('words.show', conmapct('words'));
     }
 
     /**
@@ -75,7 +76,9 @@ class WordController extends Controller
      */
     public function edit($id)
     {
-        //
+        $word = Word::find($id);
+        
+        return view('words.edit', compact('word'));
     }
 
     /**
