@@ -47,6 +47,8 @@
                     </tr>
                     </tbody>
                     </table>
+
+                    {{ $words->links() }}                    
                 </div>
             </div>
         </div>

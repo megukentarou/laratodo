@@ -22,6 +22,8 @@ ROute::group(['prefix' => 'words', 'middleware' => 'auth'], function(){
     Route::post('store', 'WordController@store')->name('words.store');  
     Route::get('show/{id}', 'WordController@show')->name('words.show');  
     Route::get('edit/{id}', 'WordController@edit')->name('words.edit');  
+    Route::post('update/{id}', 'WordController@update')->name('words.update');  
+    Route::post('destroy/{id}', 'WordController@destroy')->name('words.destroy');  
 });
 
 Auth::routes();

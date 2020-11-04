@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Word;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\StoreWord;
 
 class WordController extends Controller
 {
@@ -19,7 +20,7 @@ class WordController extends Controller
         $words = DB::table('words')
         ->select('id', 'text', 'impression', 'action')
         ->orderBy('created_at', 'desc')
-        ->get();
+        ->paginate(5);;
 
         return view('words.index', compact('words'));
     }
@@ -40,7 +41,7 @@ class WordController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreWord $request)
     {
         $word = new Word;
 
@@ -50,7 +51,7 @@ class WordController extends Controller
 
         $word->save();
 
-        \Session::flash('flash_message', '保存しました。');
+        \Session::flash('flash_message', '保存しました');
         return redirect('words/index');
     }
 
@@ -90,7 +91,16 @@ class WordController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $word = Word::find($id);
+
+        $word->text = $request->input('text');
+        $word->impression = $request->input('impression');
+        $word->action = $request->input('action');
+
+        $word->save();
+
+        \Session::flash('flash_message', '更新しました');
+        return redirect('words/index');
     }
 
     /**
@@ -101,6 +111,10 @@ class WordController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $word = Word::find($id);
+        $word->delete();
+
+        \Session::flash('flash_message', '削除しました');
+        return redirect('words/index');
     }
 }

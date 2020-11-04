@@ -14,23 +14,23 @@
                     @endif
 
                     編集画面
-                   <form method="POST" action="{{ route('words.store',['id' => $word->id]) }}" >
+                   <form method="POST" action="{{ route('words.update',['id' => $word->id]) }}" >
                     @csrf
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">
-                        ・印象に残った言葉を入力して下さい
+                        ・印象に残った言葉を入力して下さい(300字以内)
                         </label>
                         <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="5">{{ $word->text }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea2">
-                        ・その言葉にどの様な印象を持ちましたか？
+                        ・その言葉にどの様な印象を持ちましたか？(300字以内)
                         </label>
                         <textarea class="form-control" name="impression" id="exampleFormControlTextarea2" rows="5" >{{ $word->impression }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea３">
-                        ・具体的にどの様な行動をしますか？
+                        ・具体的にどの様な行動をしますか？(300字以内)
                         <br>
                         (出来るだけ細かく決める事で具体性が生まれてきて、行動しているイメージがしやすくなります。)
                         </label>
