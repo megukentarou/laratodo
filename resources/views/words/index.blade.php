@@ -1,6 +1,11 @@
-wordモデルのindex
 @extends('layouts.app')
+@if (Session::has('flash_message'))
+    <p class="bg-success">{!! Session::get('flash_message') !!}</p>
+@endif
 
+@if (Session::has('error_message'))
+    <p class="bg-danger">{!! Session::get('error_message') !!}</p>
+@endif
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -14,8 +19,13 @@ wordモデルのindex
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    ログインしました
+                    <form method="GET" action="{{ route('words.create') }}">
+                    <button type="submit" class="btn btn-primary">
+                      新規投稿する
+                    </button>
+                    </form>
+                    <br>
+                    index.bladeです
                 </div>
             </div>
         </div>
