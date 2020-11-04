@@ -23,9 +23,28 @@
                     <button type="submit" class="btn btn-primary">
                       新規投稿する
                     </button>
-                    </form>
-                    <br>
-                    index.bladeです
+                    
+                    </form>                  
+                    <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">テキスト</th>
+                        <th scope="col">感想</th>
+                        <th scope="col">行動</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($words as $word)
+                    <tr>
+                    <th scope="row">{{ $word->id}}</th>
+                    <td>{{ $word->text}}</td>
+                    <td>{{ $word->impression}}</td>
+                    <td>{{ $word->action}}</td>
+                    @endforeach  
+                    </tr>
+                    </tbody>
+                    </table>
                 </div>
             </div>
         </div>
