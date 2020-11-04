@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('words/word', 'WordController@index');
+// ログインしていないとリダイレクトされる
+ROute::group(['prefix' => 'words', 'middleware' => 'auth'], function(){
+    Route::get('index', 'WordController@index')->name('words.index');  
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
