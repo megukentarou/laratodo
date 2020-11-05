@@ -59,7 +59,7 @@ class WordController extends Controller
     public function store(Request $request)
     {
         $word = new Word;
-
+        
         $word->text = $request->input('text');
         $word->impression = $request->input('impression');
         $word->action = $request->input('action');
