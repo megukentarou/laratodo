@@ -107,6 +107,16 @@ class WordController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $word = Word::find($id);
+
+        $word->text = $request->input('text');
+        $word->impression = $request->input('impression');
+        $word->action = $request->input('action');
+
+        $word->save();
+
+        \Session::flash('flash_message', '更新しました');
+        return redirect('words/index');
     }
 
     /**
@@ -118,5 +128,10 @@ class WordController extends Controller
     public function destroy($id)
     {
         //
+        $word = Word::find($id);
+        $word->delete();
+
+        \Session::flash('flash_message', '削除しました');
+        return redirect('words/index');
     }
 }
