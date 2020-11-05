@@ -17,12 +17,6 @@ class WordController extends Controller
     {   
 
         $search = $request->input('search');
-        
-        //クエリビルダ
-        // $words = DB::table('words')
-        // ->select('id', 'text', 'impression', 'action')
-        // ->orderBy('created_at', 'desc')
-        // ->get();
 
         // 検索フォーム用
         $query = DB::table('words');
