@@ -24,13 +24,28 @@
                     {{ $word->action }}</p>
                     <form method="GET" action="{{ route('words.edit', ['id' => $word->id]) }}">
                     @csrf
-                    <input class="btn btn-primary" type="submit" value="編集する">              
+                    <input class="btn btn-primary" type="submit" value="編集する">
                     </form>
-                    <br>
-                    <a href="#">いいねする（実装中）</a>
+
+                    <!-- 削除機能              -->
+                    <form method="POST" action="{{ route('words.destroy', ['id' => $word->id]) }}" id="delete_{{ $word->id }}">
+                    @csrf
+                    <a href="#" class="btn btn-danger" data-id="{{ $word->id }}" onclick="deletePost(this);">削除する</a>              
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+
+function deletePost(e) {
+    'use strict';
+    if (confirm('本当に削除していいですか？')) {
+        document.getElementById('delete_' + e.dataset.id).submit();
+    }
+}
+</script>
+
 @endsection
