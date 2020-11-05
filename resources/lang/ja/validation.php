@@ -117,7 +117,7 @@ return [
     */
 
     'attributes' => [
-        'password'=>'パスワード'
+        'password'=>'パスワード',
         'text'=>'印象に残った言葉の入力',
         'impression'=>'印象の入力',
         'action'=>'行動の入力',
