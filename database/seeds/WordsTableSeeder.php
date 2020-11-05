@@ -13,6 +13,9 @@ class WordsTableSeeder extends Seeder
     public function run()
     {
         factory(Word::class, 50)->create(); //Fakerでダミーデータ50件作成
-        
+        DB::table('words')->insert([
+           'user_id' => $faker->numberBetween(1, 20),
+        ]);
     }
+
 }

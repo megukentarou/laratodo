@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * リレーション（1対多）
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function words() // 複数形
+    {
+        return $this->hasMany('App\Models\Word');
+    }
 }

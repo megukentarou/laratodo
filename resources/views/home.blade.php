@@ -5,23 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">このアプリの使い方</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif        
-                </div>
-                
-            </div>
-            <div class="card">
                 <div class="card-header">
-                <h3>
-                心が変われば行動が変わる<br>行動が変われば習慣が変わる<br>習慣が変われば人格が変わる<br>人格が変われば運命が変わる<br>運命が変われば人生が変わる<br>
-                </h3>
-                フレデリック・アミエル</div>
+                <h4>
+                <br>心が変われば行動が変わる
+                <br>行動が変われば習慣が変わる
+                <br>習慣が変われば人格が変わる
+                <br>人格が変われば運命が変わる
+                <br>運命が変われば人生が変わる<br>
+                </h4>
+                <br>フレデリック・アミエル</div>
                 <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
                 <title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
                 
