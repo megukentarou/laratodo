@@ -13,13 +13,35 @@ class WordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(Request $request)
+    {   
+
+        $search = $request->input('search');
+        
         //クエリビルダ
-        $words = DB::table('words')
-        ->select('id', 'text', 'impression', 'action')
-        ->orderBy('created_at', 'desc')
-        ->get();
+        // $words = DB::table('words')
+        // ->select('id', 'text', 'impression', 'action')
+        // ->orderBy('created_at', 'desc')
+        // ->get();
+
+        // 検索フォーム用
+        $query = DB::table('words');
+
+        if($search !== null) {
+            //全角スペースを半角に置換する
+            $search_split = mb_convert_kana($search,'s');
+            //空白で区切る
+            $search_split2 = preg_split('/[\s]+/', $search_split,-1,PREG_SPLIT_NO_EMPTY);
+            //単語をループで回す
+            foreach($search_split2 as $value)
+            {
+            $query->where('action','like','%'.$value.'%');
+            }
+        };
+
+        $query->select('id', 'text', 'impression', 'action');
+        $query->orderBy('created_at', 'desc');
+        $words = $query->paginate(5);
 
         return view('words.index', compact('words'));
     }

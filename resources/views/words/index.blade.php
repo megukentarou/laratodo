@@ -22,9 +22,14 @@
                     <form method="GET" action="{{ route('words.create') }}">
                     <button type="submit" class="btn btn-primary">
                       新規投稿する
-                    </button>
-                    
-                    </form>                  
+                    </button>            
+                    </form>
+
+                    <form method="GET" action="{{ route('words.index') }}" class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="入力して下さい" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索する</button>
+                    </form>
+
                     <table class="table">
                     <thead class="thead-dark">
                       <tr>
