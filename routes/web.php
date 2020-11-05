@@ -12,8 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
 
 // ログインしていないとリダイレクトされる
 ROute::group(['prefix' => 'words', 'middleware' => 'auth'], function(){
@@ -22,6 +23,10 @@ ROute::group(['prefix' => 'words', 'middleware' => 'auth'], function(){
     Route::post('store', 'WordController@store')->name('words.store');  
     Route::get('show/{id}', 'WordController@show')->name('words.show');  
     Route::get('edit/{id}', 'WordController@edit')->name('words.edit');  
+});
+
+ROute::group(['prefix' => 'users', 'middleware' => 'auth'], function(){
+    Route::get('show/{id}', 'UserController@show')->name('users.show');   
 });
 
 Auth::routes();

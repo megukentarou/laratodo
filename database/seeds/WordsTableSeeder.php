@@ -13,5 +13,6 @@ class WordsTableSeeder extends Seeder
     public function run()
     {
         factory(Word::class, 50)->create(); //Fakerでダミーデータ50件作成
+        
     }
 }
