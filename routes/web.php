@@ -27,6 +27,10 @@ ROute::group(['prefix' => 'words', 'middleware' => 'auth'], function(){
     Route::post('destroy/{id}', 'WordController@destroy')->name('words.destroy');    
 });
 
+Route::prefix('users')->name('users.')->group(function () {
+    Route::get('/{name}', 'UserController@show')->name('show');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

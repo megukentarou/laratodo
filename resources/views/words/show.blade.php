@@ -22,6 +22,9 @@
                     <h4 class="card-title">具体的にどの様な行動をするのか</h4>
                     <p class="card-text">
                     {{ $word->action }}</p>
+
+                    @if( Auth::id() === $word->user_id )
+                    <!-- 編集機能 -->
                     <form method="GET" action="{{ route('words.edit', ['id' => $word->id]) }}">
                     @csrf
                     <input class="btn btn-primary" type="submit" value="編集する">
@@ -31,6 +34,7 @@
                     @csrf
                     <a href="#" class="btn btn-danger" data-id="{{ $word->id }}" onclick="deletePost(this);">削除する</a>              
                     </form>
+                    @endif
                 </div>
             </div>
         </div>
