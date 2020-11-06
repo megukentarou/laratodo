@@ -34,7 +34,7 @@ class WordController extends Controller
             }
         };
 
-        $query->select('id', 'text', 'impression', 'action');
+        $query->select('id', 'text', 'impression', 'action', 'user_id');
         $query->orderBy('created_at', 'desc');
         $words = $query->paginate(5);
 
