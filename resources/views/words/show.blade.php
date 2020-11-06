@@ -13,21 +13,20 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <h5 class="card-title">印象に残った言葉</h5>
+                    <h4 class="card-title">印象に残った言葉</h4>
                     <p class="card-text">
                     {{ $word->text }}</p>
-                    <h5 class="card-title">どの様な印象を持ったか</h5>
+                    <h4 class="card-title">どの様な印象を持ったか</h4>
                     <p class="card-text">
                     {{ $word->impression }}</p>
-                    <h5 class="card-title">具体的にどの様な行動をするのか</h5>
+                    <h4 class="card-title">具体的にどの様な行動をするのか</h4>
                     <p class="card-text">
                     {{ $word->action }}</p>
                     <form method="GET" action="{{ route('words.edit', ['id' => $word->id]) }}">
                     @csrf
                     <input class="btn btn-primary" type="submit" value="編集する">
                     </form>
-
-                    <!-- 削除機能              -->
+                    <!-- 削除機能 -->
                     <form method="POST" action="{{ route('words.destroy', ['id' => $word->id]) }}" id="delete_{{ $word->id }}">
                     @csrf
                     <a href="#" class="btn btn-danger" data-id="{{ $word->id }}" onclick="deletePost(this);">削除する</a>              
@@ -38,8 +37,8 @@
     </div>
 </div>
 
+<!-- 削除選択時に最終確認のイベント発火 -->
 <script>
-
 function deletePost(e) {
     'use strict';
     if (confirm('本当に削除していいですか？')) {

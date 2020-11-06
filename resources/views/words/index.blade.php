@@ -36,6 +36,25 @@
                     <a  class="btn btn-light bg-light border-dark" href="{{ route('words.index') }}">全件表示する</a>
                     <br>
 
+                    @foreach($words as $word)
+                    <div class="container">
+                        <div class="card mt-3">
+                        <div class="card-body d-flex flex-row">
+                            <i class="fas fa-user-circle fa-3x mr-1"></i>
+                            <div class="font-weight-bold">
+                                ユーザー名(実装中)
+                            </div>
+                        </div>
+                        <div class="card-body pt-0 pb-2">
+                            行動目標
+                            <h3 class="h4 card-title">  
+                            {{ $word->action}}
+                            </h3>
+                            <a href="{{ route('words.show', ['id' => $word->id]) }}" class="btn btn-light bg-light border-dark" >詳細を見る</a>
+                        </div>
+                        </div>
+                    </div>
+                    @endforeach 
                     <br>
                     <table class="table table-hover">
                     <thead class="thead-dark">
