@@ -56,12 +56,22 @@
                                 <button type="submit" class="btn btn-outline-primary btn-lg">
                                     {{ __('ログイン') }}
                                 </button>
+                                <br>
 
+                                <!-- パスワード忘れた場合（追加実装中） -->
+                                <!-- <br>
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-outline-primary btn-lg" href="{{ route('password.request') }}">
                                         {{ __('パスワードを忘れた方') }}
                                     </a>
                                 @endif
+                                <br> -->
+
+                                <br>
+                                <a class="btn btn-outline-primary btn-lg" href="{{ route('register') }}">
+                                    {{ __('新規ユーザ登録の方') }}
+                                </a>
+                                <br>
                             </div>
                         </div>
                     </form>
