@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">編集画面</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +13,17 @@
                         </div>
                     @endif
 
-                    編集画面
-                   <form method="POST" action="{{ route('words.store',['id' => $word->id]) }}" >
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+        
+                   <form method="POST" action="{{ route('words.update',['id' => $word->id]) }}" >
                     @csrf
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">
@@ -36,9 +45,6 @@
                         </label>
                         <textarea class="form-control" name="action" id="exampleFormControlTextarea３" rows="7">{{ $word->action }}</textarea>
                     </div>
-  
-                    <form method="GET" action="{{ route('words.edit', ['id' => $word->id]) }}">
-                    @csrf
                     <input class="btn btn-primary" type="submit" value="更新する">              
                     </form>
                 </div>

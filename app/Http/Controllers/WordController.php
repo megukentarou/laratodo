@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Word;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\StoreWord;
 
 class WordController extends Controller
 {
@@ -56,7 +57,7 @@ class WordController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreWord $request)
     {
         $word = new Word;
         $word->user_id = $request->user()->id;
@@ -66,7 +67,7 @@ class WordController extends Controller
 
         $word->save();
 
-        \Session::flash('flash_message', '保存しました。');
+        \Session::flash('flash_message', '保存しました');
         return redirect('words/index');
     }
 
@@ -104,7 +105,7 @@ class WordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreWord $request, $id)
     {
         //
         $word = Word::find($id);

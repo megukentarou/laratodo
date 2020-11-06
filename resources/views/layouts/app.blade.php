@@ -60,14 +60,15 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('ログアウト') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                    <a class="dropdown-item" href="{{ route('users.show', ['name' => Auth::user()->name]) }}">
+                                        {{ __('マイページ') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('words.create') }}">
                                         {{ __('投稿する') }}
                                     </a>
-
                                 </div>
                             </li>
                         @endguest
