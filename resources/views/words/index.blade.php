@@ -47,12 +47,10 @@
                         </div>
                         <div class="card-body pt-0 pb-2">
                             <h3 class="h4 card-title">
+                            行動目標
                             {{ $word->text}}
                             </h3>
-                            <div class="card-text">
-                            記事本文
-                            </div>
-                            <a href="{{ route('words.show', ['id' => $word->id]) }}" class="btn btn-light" >詳細を見る</a>
+                            <a href="{{ route('words.show', ['id' => $word->id]) }}" class="btn btn-light bg-light border-dark" >詳細を見る</a>
                         </div>
                         </div>
                     </div>
