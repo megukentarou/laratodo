@@ -17,14 +17,14 @@ Route::get('/', function () {
 
 
 // ログインしていないとリダイレクトされる
-ROute::group(['prefix' => 'words', 'middleware' => 'auth'], function(){
-    Route::get('index', 'WordController@index')->name('words.index');  
-    Route::get('create', 'WordController@create')->name('words.create');  
-    Route::post('store', 'WordController@store')->name('words.store');  
-    Route::get('show/{id}', 'WordController@show')->name('words.show');  
+ROute::group(['prefix' => 'words', 'middleware' => 'auth'], function () {
+    Route::get('index', 'WordController@index')->name('words.index');
+    Route::get('create', 'WordController@create')->name('words.create');
+    Route::post('store', 'WordController@store')->name('words.store');
+    Route::get('show/{id}', 'WordController@show')->name('words.show');
     Route::get('edit/{id}', 'WordController@edit')->name('words.edit');
-    Route::post('update/{id}', 'WordController@update')->name('words.update');  
-    Route::post('destroy/{id}', 'WordController@destroy')->name('words.destroy');    
+    Route::post('update/{id}', 'WordController@update')->name('words.update');
+    Route::post('destroy/{id}', 'WordController@destroy')->name('words.destroy');
 });
 
 Route::prefix('users')->name('users.')->group(function () {
